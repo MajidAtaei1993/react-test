@@ -1,0 +1,68 @@
+nav.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 24px;
+    background-color: teal;
+    & .logo{
+        display: flex;
+        padding: 6px;
+        cursor: pointer;
+    }
+    & .navlinks{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        & .navlink{
+            margin: 0 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all .3s ease;
+        }
+        & .navlink:hover{
+            color: white;
+        }
+    }
+    & .route-link{
+        background-color: white;
+        padding: 12px;
+        border-radius: 6px;
+        transition: all .3s ease;
+        color: #474848;
+        & span{
+            margin-right: 8px
+        }
+    }
+    & .route-link:hover{
+        background-color: teal;
+        color: white;
+    }
+}
+button{
+    width: 100%;
+    background-color: teal;
+    padding: 12px;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    transition: all .3s ease;
+    margin-top: 22px;
+    border: 1px solid teal;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    animation: liner 2s infinite;
+}
+button:hover{
+    background-color: white;
+    color: teal;
+}
+@keyframes liner {
+  from {
+    background-color: teal;
+  }
+  to {
+    background-color: rgb(119, 167, 250);
+  }
+}
