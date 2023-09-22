@@ -1,0 +1,137 @@
+.home-page{
+    // height: calc(100vh - 17.5vh);
+    width: 100%;
+    padding: 7% 0;
+    position: relative;
+    & .content {
+        position: relative;
+        // height: calc(100% - 400px);
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        & h2 {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: -18px;
+            font-weight: 500;
+        }
+        & h1 {
+            font-size: 60px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 8px;
+        }
+        & .btn{
+            font-size: 24px;
+            padding: unset;
+            margin: unset;
+            background-color: gray;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            padding-bottom: 9px;
+            text-transform: uppercase;
+            margin: 24px auto;
+            width: unset;
+            display: flex;
+        }
+        & .btn:hover{
+            background-color: black;
+        }
+        & p{
+            font-size: 18px;
+            padding: 9px;
+            text-align: center;
+        }
+        & .img {
+            height: 100%;
+            padding: .5rem;
+            & img{
+                border: 8px solid #000;
+                height: 100%;
+                object-fit: fill;
+                box-shadow: 0px 3px 7px rgba($color: #000000, $alpha: 1);
+            }
+        }
+        & .img1{
+            animation: image-shake 10s linear infinite;
+        }
+        & .img2{
+            animation: image-spin 10s linear infinite;
+        }
+    }
+    // products
+    & .products {
+        text-align: center;
+        & h1 {
+            font-size: 32px;
+            border-bottom: 1px solid #979898;
+            width: fit-content;
+            display: flex;
+            margin: 0 auto;
+            padding-bottom: 16px;
+            text-transform: uppercase;
+        }
+        & p{
+            font-size: 16px;
+            margin-bottom: 28px;
+            margin-top: 12px;
+            text-transform: capitalize;
+        }
+        & button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: fit-content;
+            margin-bottom: 1.7rem;
+            margin-left: 1rem;
+            background-color: rgba($color: #ffffff, $alpha: 0.8);
+            color: var(--text-color);
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        & button:hover{
+            background-color: #fff;
+            border: 1px solid white;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .img {
+        display: none;
+    }
+}
+@keyframes image-shake {
+    0%{
+        transform: rotateX(0deg);
+    }
+    25%{
+        transform: rotateY(45deg);
+    }
+    50%{
+        transform: rotateY(20deg);
+    }
+    75%{
+        transform: rotateY(10deg);
+    }
+    99%{
+        transform: rotateY(5deg);
+    }
+}
+@keyframes image-spin {
+    0%{
+        transform: rotateX(0deg);
+    }
+    25%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        transform: rotateY(0deg);
+    }
+    75%{
+        transform: rotateY(250deg);
+    }
+    99%{
+        transform: rotateY(0deg);
+    }
+}
