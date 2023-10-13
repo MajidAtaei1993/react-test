@@ -6,9 +6,7 @@ import Products from './pages/products'
 import Product from './pages/product'
 export default function App() {
   return (
-    <div className='container mx-auto'>
-      <div className="py-2 flex items-center justify-center">
-      </div>
+    <div className=''>
         <Routes>
           <Route className="route-link" path='/auth/login' element={ <Login />}></Route>
           <Route path='/auth/register' element={ <Signup />}></Route>

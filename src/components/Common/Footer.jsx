@@ -70,7 +70,7 @@ export default function Footer() {
     return (
         <div className="footer">
                 { footerUl.map((ul, i) =>(
-                <ul className="columns-auto" key={ i }>
+                <ul className="" key={ i }>
                     <h3 className="head">{ ul.header }</h3>
                     { ul.el.map((li, j)=>
                         <li key={ j }>
@@ -81,8 +81,8 @@ export default function Footer() {
                     )}
                 </ul>
                 ))}
-                <div className="copyright columns-12">
-                    <p> Copyright <span>&COPY;</span></p>
+                <div className="copyright w-full">
+                    <p className="text-sm text-gray-600"> Copyright <span>&copy;</span> MajidAtaei</p>
                 </div>
         </div>
     )

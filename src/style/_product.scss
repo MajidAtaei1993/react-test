@@ -1,8 +1,9 @@
 .prodcust-section{
     padding: 50px 0;
-    min-height: 600px;
     & .banner {
         height: 400px;
+        // width: 100%;
+        object-fit: cover;
         display: flex;
         margin: 0 auto;
         border-radius: 7px;
@@ -14,30 +15,83 @@
         border-radius: 12px;
         & .colors {
             position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            & h5 {
+                width: 100%;
+            }
             & span{
                 margin-top: .75rem;
-                position: absolute;
+                position: relative;
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
                 border-radius: 100%;
             }
             & span:nth-child(4) {
-                margin-left: 6rem;
                 background-color: gray;
             }
             & span:nth-child(3) {
-                margin-left: 3rem;
+                margin: .75rem 1rem;
                 background-color: white;
             }
             & span:nth-child(2) {
-                margin-right: 1rem;
                 background-color: black;
             }
-            & span.avtive{
-                padding: 9px;
+            & span.active{
                 border: 2px solid #474848;
+                position: relative;
+                z-index: 2;
+            }
+            & span.active::before{
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 40px;
+                height: 40px;
+                background-color: white;
+                border-radius: 100%;
+                z-index: 1;
+                border: 2px solid #474848;
+            }
+        }
+        & .more-details {
+            border-top: 1px solid #979898;
+            padding-top: 1rem;
+            & ul {
+                list-style: circle;
+                padding-left: 1.5rem;
+                padding-top: .75rem;
+                & li {
+                    text-transform: capitalize;
+                    color: #474848;
+                    margin: .25rem 0;
+                }
+            }
+            & .card {
+                border: 2px solid  white;
+                border-radius: 7px;
+                box-shadow: 0px 3px 7px rgb(255 255 255 / 60%);
+                background-color: #FFF;
+                & h6 {
+                    text-transform: capitalize;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: .25rem 0;
+                }
+                & p {
+                    text-transform: capitalize;
+                }
+                & svg {
+                    fill: #979898
+                }
             }
         }
     }

@@ -1,48 +1,59 @@
-
-export default function login() {
+import { useState } from "react"
+import { Link } from "react-router-dom"
+const loginMethod = [
+    {id: 1, text:'Mangement', icon:'/src/assets/icons/settings.png' },
+    {id: 2, text:'Employer', icon:'/src/assets/icons/user.png' },
+]
+export default function Login() {
+    let [ activeCard, setActiveCard ] = useState(0)
+    let [ showPassword, setShowPassword ] = useState(false)
+    // let [ authMothod, setAuthMethod ] = useState(true)
     return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-auto lg:py-0 mt-40">
-        <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-            <img className="w-10 h-10 mr-2" src="/public/images/fardadLogo.png" alt="logo" />
-            Frdad co    
-        </a>
-        <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                    Sign in to your account
-                </h1>
-                <form className="space-y-4 md:space-y-6" action="#">
-                    <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                        <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
-                    </div>
-                    <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-start">
-                            <div className="flex items-center h-5">
-                                <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="" />
+        <div className="container mx-auto py-7 auth">
+            <div className="lg:w-[450px] md:w-[500px] bg-slate-700 rounded-lg px-6 py-2 mx-auto">
+                <h1 className="text-xl text-white text-center capitalize">choose account type</h1>
+                <div className="account-type columns-2 gap-4">
+                    {
+                        loginMethod.map(item =>
+                            <div key={ item.id } className={ activeCard === item.id ? 'active p-4 card' : 'p-4 card' } onClick={()=>setActiveCard(item.id)}>
+                                <img src={ item.icon } alt="" className="w-36" />
+                                <h1 className="text-lg">{ item.text }</h1>
                             </div>
-                            <div className="ml-3 text-sm">
-                                <label className="text-gray-500 dark:text-gray-300">Remember me</label>
+                        )
+                    }
+                </div>
+                <form action="" className="mt-10">
+                    <div className="columns-1">
+                        <div className="sm:col-span-4">
+                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
+                                User Name
+                            </label>
+                            <div className="mt-2">
+                                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset sm:max-w-md">
+                                <input type="text" name="username" id="username" autoComplete="username" className="block flex-1 border-0 bg-transparent p-2 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 rounded-xl" placeholder="User Name" />
+                                </div>
                             </div>
                         </div>
-                        <a className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                     </div>
-                    <button>
-                        Sign in
-                    </button>
-                    {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Don’t have an account yet? 
-                        <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
-                    </p> */}
+                    <div className="columns-1 my-2">
+                        <div className="">
+                            <label htmlFor="password" className="text-white leading-6">Password</label>
+                            <div className="rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 w-full mt-2 focus-within:ring-2 focus-within:ring-inset flex items-center pr-2">
+                                <input name="password" id="password" placeholder="password" className="rounded-lg border-1 text-white bg-transparent p-2 focus:ring-0 w-full" type={ showPassword ? 'password' : 'text' } />
+                                <div onClick={ ()=>setShowPassword(!showPassword)} className={ showPassword ? 'fa fa-eye cursor-pointer text-white' : 'cursor-pointer text-white fa fa-eye-slash' }></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="columns-1 items-center border-b pb-2">
+                        <button className="uppercase hover:bg-transparent">login</button>
+                        <Link className="text-white pt-4 text-sm">Forget password ?</Link>
+                    </div>
+                    <Link className="columns-1 flex justify-between text-white py-3 text-sm" to='/auth/register'>
+                        <span className="capitalize">do you have any account?</span>
+                        singup
+                    </Link>
                 </form>
             </div>
         </div>
-    </div>
-    </section>
     )
-  }
+}
