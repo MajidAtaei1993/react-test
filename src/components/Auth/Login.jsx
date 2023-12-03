@@ -4,6 +4,21 @@ const loginMethod = [
     {id: 1, text:'Mangement', icon:'/src/assets/icons/settings.png' },
     {id: 2, text:'Employer', icon:'/src/assets/icons/user.png' },
 ]
+
+async function login(payload){
+    
+    return fetch('http:localhost:5173/login', {
+        method: 'POST',
+        headers:{
+            'Contet-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(resp=>{
+        resp.data()
+    })
+}
+
 export default function Login() {
     let [ activeCard, setActiveCard ] = useState(0)
     let [ showPassword, setShowPassword ] = useState(false)
@@ -22,7 +37,7 @@ export default function Login() {
                         )
                     }
                 </div>
-                <form action="" className="mt-10">
+                <form action="" className="mt-10" onSubmit={login}>
                     <div className="columns-1">
                         <div className="sm:col-span-4">
                             <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
@@ -45,7 +60,7 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="columns-1 items-center border-b pb-2">
-                        <button className="uppercase hover:bg-transparent">login</button>
+                        <button className="uppercase hover:bg-transparent" onClick={login}>login</button>
                         <Link className="text-white pt-4 text-sm">Forget password ?</Link>
                     </div>
                     <Link className="columns-1 flex justify-between text-white py-3 text-sm" to='/auth/register'>

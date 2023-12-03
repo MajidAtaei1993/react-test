@@ -1,14 +1,16 @@
 import { NavLink, useLocation } from 'react-router-dom'
 const navWrapper = [
-    { text: 'football', route:'' },
-    { text: 'footsal', route:'' },
-    { text: 'basketball', route:'' },
-    { text: 'volyball', route:'' },
-    { text: 'handball', route:'' },
-    { text: 'medisinball', route:'' },
-    { text: 'fantazy', route:'' },
-    { text: 'watterpolo', route:'' },
-    { text: 'all produacts', route:'/products' }
+    { text: 'sale', route:'' },
+    { text: 'women', route:'' },
+    { text: 'men', route:'' },
+    { text: 'kids', route:'' },
+    { text: 'designer', route:'' },
+    { text: 'shoes', route:'' },
+    { text: 'activewear', route:'' },
+    { text: 'home', route:'' },
+    { text: 'beauty', route:'' },
+    { text: 'holiday gifts', route:'' },
+    { text: 'explore', route:'/products' }
 ]
 export default function Navbar(){
     let currentRoute = useLocation()
@@ -23,20 +25,19 @@ export default function Navbar(){
             </div>
             <div>
                 <NavLink className={ useLocation().pathname === '/auth/login' ? 'text-white py-3 px-4 rounded-lg bg-slate-700 border border-slate-700 mx-2' : ' text-black py-3 px-4 rounded-lg border-slate-700 border mx-2' } to='/auth/login'>
-                    <span className="fa fa-user-o mr-2" />
-                    <span className="fa fa-arrow-right-to-bracket"></span>
+                    <i className="uil uil-sign-in-alt mr-2 text-xl"></i>
                     Login
                 </NavLink>
-                <NavLink className={ useLocation().pathname === '/auth/register' ? 'text-white py-3 px-4 rounded-lg bg-slate-700 border border-slate-700 mx-2' : ' text-black py-3 px-4 rounded-lg border-slate-700 border mx-2' } to='/auth/register'>
+                {/* <NavLink className={ useLocation().pathname === '/auth/register' ? 'text-white py-3 px-4 rounded-lg bg-slate-700 border border-slate-700 mx-2' : ' text-black py-3 px-4 rounded-lg border-slate-700 border mx-2' } to='/auth/register'>
                     <span className="fa fa-user-o mr-2" />
                     Signup
-                </NavLink>
+                </NavLink> */}
                 {  }
             </div>
-            <ul className="navlinks columns-12">
+            <ul className="navlinks grid gap-4">
                 {
                     navWrapper.map((link, i)=>
-                        <NavLink to={ link.route } className={ currentRoute.pathname === link.route ? 'text-slate-600-900 mr-2' : 'text-gray-500 mr-2' } key={ i }>{ link.text }</NavLink>
+                        <NavLink to={ link.route } className={ currentRoute.pathname === link.route ? 'text-slate-600-900 mr-2 capitalize' : 'text-gray-500 capitalize' } key={ i }>{ link.text }</NavLink>
                     )
                 }
             </ul>
